@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .foraviteHobby {
+                color: blue
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-app="myApp">
+            <div ng-controller="myController as ctrl" >
+                <div ng-show="ctrl.addInfo">
+                    <input type= "text" ng-model="ctrl.firstName" placeholder="Enter first name"><br>
+                    <input type= "text" ng-model="ctrl.lastName" placeholder="Enter family name"><br>
+
+                    <input type= "text" ng-model="ctrl.hobby" value="Enter hobby!" placeholder="Enter hobby">
+
+                    <button ng-click="ctrl.addHobby()">Add</button><br>
+                    <ul ng-repeat="h in ctrl.hobbies">
+                        <li >
+                            <span ng-class="{ foraviteHobby: h.favorite }" >{{h.name}}</span><br>
+                            <label><input type="checkbox"  ng-click="ctrl.check($index)"  > Favorite
+                            </label>
+                            <button ng-click="ctrl.delete(ctrl.index)">Delete</button><br>
+                        </li>      
+                    </ul><br>
+                        <button ng-click="ctrl.save()">Save</button>
+                    </div>
+                <div ng-hide = "ctrl.addInfo">
+                    {{ctrl.firstName}}<br>
+                    {{ctrl.lastName}}<br>
+                    List of hobies:
+                    <ul ng-repeat="h in ctrl.hobbies">
+                        <li  ng-class="{ foraviteHobby: h.favorite }">{{h.name}}
+                        </li>
+                    </ul><br>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="controller.js"></script>
+</html>
