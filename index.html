@@ -20,9 +20,9 @@
                     <ul ng-repeat="h in ctrl.hobbies">
                         <li >
                             <span ng-class="{ foraviteHobby: h.favorite }" >{{h.name}}</span><br>
-                            <label><input type="checkbox"  ng-click="ctrl.check($index)"  > Favorite
+                            <label><input type="checkbox"  ng-click="h.favorite = !h.favorite" > Favorite
                             </label>
-                            <button ng-click="ctrl.delete(ctrl.index)">Delete</button><br>
+                            <button ng-click="ctrl.delete($index)">Delete</button><br>
                         </li>      
                     </ul><br>
                         <button ng-click="ctrl.save()">Save</button>
