@@ -13,11 +13,7 @@
            vm.delete = function(index) {
                vm.hobbies.splice(index, 1);
            }
-           
-           vm.check = function(index) {
-              vm.hobbies[index].favorite = !vm.hobbies[index].favorite;
-           }
-           
+          
            vm.save= function(){
              vm.addInfo = !vm.addInfo;
            }
